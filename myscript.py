@@ -1,4 +1,5 @@
 import os
+import sys
 
 
 def main():
@@ -7,8 +8,8 @@ def main():
         os.system(f"git bisect start {badCommit} e4cfc6f77ebbe2e23550ddab682316ab4ce1c03c")
         os.system("git bisect run python manage.py test")
         os.system("git bisect reset")
-        return 1
-    return 0
+        sys.exit(1)
+    sys.exit(0)
 
 
 if __name__ == '__main__':
